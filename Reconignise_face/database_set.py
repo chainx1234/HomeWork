@@ -35,11 +35,12 @@ while(True):
     faces=faceDetect.detectMultiScale(gray,1.3,5);
     for(x,y,w,h) in faces:
         sampleNum=sampleNum+1;
-        cv2.imwrite("C:\\Users\\abc\\PycharmProjects\\AI2\\data\\User."+str(Id)+"."+str(sampleNum)+".jpg",gray[y:y+h,x:x+w])
+        cv2.imwrite("C:\\Users\\abc\\PycharmProjects\\AI2\\Reconignise_face"
+                    "\\data\\User."+str(Id)+"."+str(sampleNum)+".jpg",gray[y:y+h,x:x+w])
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
-        cv2.imshow("Face", img);
+        cv2.imshow("Face", img)
 
-        cv2.waitKey(0);
+        cv2.waitKey(100)
     #cv2.imshow("Face",img);
     cv2.waitKey(1);
     if(sampleNum>20):

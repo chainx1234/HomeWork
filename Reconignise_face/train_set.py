@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 recognizer=cv2.face.LBPHFaceRecognizer_create()
-path='C:\\Users\\abc\\PycharmProjects\\AI2\\data'
+path='C:/Users/abc/PycharmProjects/AI2/Reconignise_face/data'
 
 def getImagesWithID(path):
     imagepaths=[os.path.join(path,f) for f in os.listdir(path)]
@@ -15,6 +15,7 @@ def getImagesWithID(path):
         faceImg=Image.open(imagepath).convert('L')
         faceNp=np.array(faceImg,'uint8')
         ID=int(os.path.split(imagepath)[-1].split('.')[1])
+        print(ID)
         faces.append(faceNp)
         IDs.append(ID)
         cv2.imshow("training",faceNp)
@@ -23,5 +24,5 @@ def getImagesWithID(path):
 
 IDs,faces=getImagesWithID(path)
 recognizer.train(faces,IDs)
-recognizer.save('C:\\Users\\abc\\PycharmProjects\\AI2\\recognizer\\trainningData.yml')
+recognizer.save('C:\\Users\\abc\\PycharmProjects\AI2\\Reconignise_face\\recognizer\\trainningData.yml')
 cv2.destroyAllWindows()
